@@ -36,7 +36,7 @@ public class Tienda
                 return prod;
             }
         }
-        return null;
+        throw new Exception("Error al buscar");
     }
 
     public bool EliminarProducto(string nombre)
@@ -48,7 +48,7 @@ public class Tienda
             return true;
         }
 
-        return false;
+        throw new Exception("Error al eliminar el producto");
     }
 
 }

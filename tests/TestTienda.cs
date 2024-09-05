@@ -55,10 +55,9 @@ public class TestTienda
     public void BuscarProductoNoExistente()
     {
         var tienda = new Tienda();
-
-        var resultado = tienda.BuscarProducto("orteguita");
-
-        Assert.Null(resultado);
+        //Assert.Null(resultado);
+        //Assert.Throws<Exception>(resultado);
+        Assert.Throws<Exception>(()=>{tienda.BuscarProducto("orteguita");});
     }
 
     [Fact]
@@ -79,8 +78,8 @@ public class TestTienda
     {
         var tienda = new Tienda();
 
-        var resultado = tienda.EliminarProducto("orgetuasd");
-
-        Assert.False(resultado);
+        //var resultado = tienda.EliminarProducto("orgetuasd");
+        //Assert.False(resultado);
+        Assert.Throws<Exception>(()=>{tienda.EliminarProducto("orgetuasd");});
     }
 }
