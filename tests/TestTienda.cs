@@ -4,14 +4,20 @@ using Moq;
 using Sistema_gestion;
 using Xunit;
 
-public class TestTienda
+public class TestTienda:IClassFixture<ProductoFixture>
 {
+    private ProductoFixture fixture;
+    public TestTienda(ProductoFixture fixture)
+    {
+        this.fixture = fixture;
+    }
+
     [Fact]
     public void AgregarProductoNoExistente()
     {
         var mocksProductoRepositorio = new Mock<IProductoRepositorio>();
         var tienda = new Tienda(mocksProductoRepositorio.Object);
-        var producto = new Producto{Nombre = "prod-1", Precio=200, Categoria="cat-1"};
+        var producto = fixture.productoPrueba;
         var cant_ant = tienda.Inventario.Count;
 
         tienda.AgregarProducto(producto);
@@ -27,8 +33,8 @@ public class TestTienda
     {
         var mocksProductoRepositorio = new Mock<IProductoRepositorio>();
         var tienda = new Tienda(mocksProductoRepositorio.Object);
-        var producto = new Producto{Nombre = "prod-1", Precio=200, Categoria="cat-1"};
-        var producto_1 = new Producto{Nombre = "prod-1", Precio=400, Categoria="cat-2"};
+        var producto = fixture.productoPrueba;
+        var producto_1 = fixture.productoPrueba;
 
         tienda.AgregarProducto(producto);
 
@@ -47,7 +53,7 @@ public class TestTienda
     {
         var mocksProductoRepositorio = new Mock<IProductoRepositorio>();
         var tienda = new Tienda(mocksProductoRepositorio.Object);
-        var producto = new Producto{Nombre = "prod-1", Precio=200, Categoria="cat-1"};
+        var producto = fixture.productoPrueba;
 
         tienda.AgregarProducto(producto);
 
@@ -61,9 +67,8 @@ public class TestTienda
     {
         var mocksProductoRepositorio = new Mock<IProductoRepositorio>();
         var tienda = new Tienda(mocksProductoRepositorio.Object);
-        //Assert.Null(resultado);
-        //Assert.Throws<Exception>(resultado);
-        Assert.Throws<Exception>(()=>{tienda.BuscarProducto("orteguita");});
+        
+        Assert.Throws<Exception>(()=>{tienda.BuscarProducto("producto-1");});
     }
 
     [Fact]
@@ -71,7 +76,7 @@ public class TestTienda
     {
         var mocksProductoRepositorio = new Mock<IProductoRepositorio>();
         var tienda = new Tienda(mocksProductoRepositorio.Object);
-        var producto = new Producto{Nombre = "prod-1", Precio=200, Categoria="cat-1"};
+        var producto = fixture.productoPrueba;
 
         tienda.AgregarProducto(producto);
 
@@ -86,9 +91,7 @@ public class TestTienda
         var mocksProductoRepositorio = new Mock<IProductoRepositorio>();
         var tienda = new Tienda(mocksProductoRepositorio.Object);
 
-        //var resultado = tienda.EliminarProducto("orgetuasd");
-        //Assert.False(resultado);
-        Assert.Throws<Exception>(()=>{tienda.EliminarProducto("orgetuasd");});
+        Assert.Throws<Exception>(()=>{tienda.EliminarProducto("producto-1");});
     }
 
     [Fact]
@@ -96,7 +99,7 @@ public class TestTienda
     {
         // Arrange
         Mock<IProductoRepositorio> mocksProductoRepositorio = new Mock<IProductoRepositorio>();
-        Producto producto = new Producto{Nombre = "prod-1", Precio=1000, Categoria="cat-1"};
+        Producto producto = fixture.productoPrueba;
         
         mocksProductoRepositorio.Setup(repo => repo.BuscarProducto("Laptop")).Returns(producto);
 
