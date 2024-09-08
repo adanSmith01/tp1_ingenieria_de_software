@@ -1,19 +1,25 @@
 namespace Sistema_gestion;
 
-public interface IProductoRepositorio
+/*public interface IProductoRepositorio
 {
     Producto BuscarProducto(string nombre);
     void ActualizarProducto(Producto producto);
+    List<Producto> ObtenerInventario();
 }
+
 public class Tienda
 {
     public List<Producto> Inventario;
-    private readonly IProductoRepositorio _productRepositorio;
+    //private readonly IProductoRepositorio _productRepositorio;
 
-    public Tienda(IProductoRepositorio productRepositorio)
+    public Tienda(List<Producto> productos)
+    {
+        Inventario = productos;
+    }
+
+    public Tienda()
     {
         Inventario = new List<Producto>();
-        _productRepositorio = productRepositorio;
     }
 
     public void AgregarProducto(Producto p)
@@ -58,14 +64,28 @@ public class Tienda
         throw new Exception("Error al eliminar el producto");
     }
 
-    public void AplicarDescuento(string nombre, double porcentaje)
+    /*public void AplicarDescuento(string nombre, double porcentaje)
     {
         Producto producto = _productRepositorio.BuscarProducto(nombre);
         if (producto != null)
         {
-            producto.Precio -= producto.Precio * (porcentaje / 100);
-            _productRepositorio.ActualizarProducto(producto);
+            var nuevoPrecio = producto.Precio * (1 - (porcentaje / 100));
+            producto.CambiarPrecio(nuevoPrecio);
         }
-    }
+    }*/
 
+    public double CalcularTotalCarrito(List<string> nombres)
+    {
+        double total = 0;
+        List<Producto> carrito = new List<Producto>();
+        foreach(var nombreProd in nombres)
+        {
+            var producto = BuscarProducto(nombreProd);
+            if (producto != null)
+            {
+                carrito.Add(producto);
+            }
+        }
+        return total;
+    }
 }
