@@ -17,17 +17,20 @@
 - 7. ¿Puede describir una situación de desarrollo para este caso en donde se plantee pruebas de
 integración ascendente? Describa la situación.
 
+
 ## RESPUESTAS TP
-- 1. TestTienda.cs - preguntar
+- 1. 
     - Pruebas de unidad:
         - EliminarProductoExistente()
-        - EliminarProductoNoExistente()
+        - BuscarProductoExistente()
     - Pruebas de integración:
         - AgregarProductoNoExistente()
         - AgregarProductoExistente()
-        - BuscarProductoExistente()
         - BuscarProductoNoExistente()
-- 2. 
+
+- 2. Primero escribes los tests definiendo el comportamiento esperado con ayuda de mocks e interfaces. Esto te permite simular dependencias externas y validar la lógica sin tener que implementar toda la funcionalidad. Luego, cuando los tests fallan (lo cual confirma que la prueba es válida y que la funcionalidad aún no está implementada), comienzas a desarrollar el código hasta que los tests pasen, asegurando que la implementación cumpla con lo que los tests requieren.
+
+- 3. 
 
 
 ## COMANDOS .NET
