@@ -1,27 +1,24 @@
 namespace Sistema_gestion;
 
-public interface IProductoRepositorio
-{
-    Producto BuscarProducto(string nombre);
-    void ActualizarProducto(Producto producto);
-}
 public class Tienda
 {
-    public List<Producto> Inventario;
-    private readonly IProductoRepositorio _productRepositorio;
+    public List<IProducto> Inventario;
 
-    public Tienda(IProductoRepositorio productRepositorio)
+    public Tienda(List<Producto> productos)
     {
-        Inventario = new List<Producto>();
-        _productRepositorio = productRepositorio;
+        Inventario = new List<IProducto>();
+        for (int i = 0; i < productos.Count; i++)
+        {
+            Inventario.Add(productos[i]);
+        }
     }
 
-    public void AgregarProducto(Producto p)
+    public void AgregarProducto(IProducto p)
     {
         if(!EstaEnElInventario(p)) Inventario.Add(p);
     }
 
-    private bool EstaEnElInventario(Producto p)
+    private bool EstaEnElInventario(IProducto p)
     {
         foreach(var prod in Inventario)
         {
@@ -34,7 +31,7 @@ public class Tienda
         return false;
     }
 
-    public Producto BuscarProducto(string nombre)
+    public IProducto BuscarProducto(string nombre)
     {
         foreach(var prod in Inventario)
         {
@@ -60,12 +57,26 @@ public class Tienda
 
     public void AplicarDescuento(string nombre, double porcentaje)
     {
-        Producto producto = _productRepositorio.BuscarProducto(nombre);
-        if (producto != null)
+        foreach(var prod in Inventario)
         {
-            producto.Precio -= producto.Precio * (porcentaje / 100);
-            _productRepositorio.ActualizarProducto(producto);
+            if(prod.Nombre == nombre)
+            {
+                var nuevoPrecio = prod.Precio * (1 - (porcentaje / 100));
+                prod.ActualizarPrecio(nuevoPrecio);
+            }
+            
         }
+    }
+
+    public double CalcularTotalCarrito(List<IProducto> productos)
+    {
+        double total = 0;
+        foreach(var prod in productos)
+        {
+            total += prod.Precio;
+        }
+
+        return total;
     }
 
 }

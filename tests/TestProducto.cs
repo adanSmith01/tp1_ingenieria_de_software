@@ -5,21 +5,19 @@ using Xunit;
 public class TestProducto
 {
     [Fact]
-    public void CambiarPrecioDeProductoNegativo()
+    public void ActualizarPrecioDeProductoNegativo()
     {
-        var producto = new Producto{Nombre = "prod-1", Precio=200, Categoria="cat-1"};
+        var producto = new Producto("prod-1", 1000, "cat-1");
 
-        Assert.Throws<Exception>(()=>{producto.CambiarPrecio(-100);});
+        Assert.Throws<Exception>(()=>{producto.ActualizarPrecio(-100);});
     }
 
     [Fact]
-    public void CambiarPrecioDeProductoPositivo()
+    public void ActualizarPrecioDeProductoPositivo()
     {
-        var producto = new Producto{Nombre = "prod-1", Precio=200, Categoria="cat-1"};
+        var producto = new Producto("prod-1", 1000, "cat-1");
 
-        producto.CambiarPrecio(100);
-        //Assert.Throws<Exception>(()=>{producto.CambiarPrecio(100);});
-        Assert.Equal(100, producto.Precio);
+        Assert.Equal(1000, producto.Precio);
     }
 }
 
