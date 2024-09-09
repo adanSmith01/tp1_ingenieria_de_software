@@ -8,8 +8,14 @@
  
 ## PREGUNTAS TP
 - 1. ¿Puedes identificar preubas de unidad y de integracion en la practica que realizaste?
-- 2. 
-- 
+- 2. Podría haber escrito las pruebas primero antes de modificar el código de la aplicación?
+¿Cómo sería el proceso de escribir primero los tests?
+- 3. En lo que va del trabajo práctico, ¿puedes identificar 'Controladores' y 'Resguardos'?
+- 4. ¿Qué es un mock? ¿Hay otros nombres para los objetos/funciones simulados? 
+- 5. ¿Qué ventajas ve en el uso de fixtures? ¿Qué enfoque estaría aplicando?
+- 6. Explique los conceptos de Setup y Teardown en testing.
+- 7. ¿Puede describir una situación de desarrollo para este caso en donde se plantee pruebas de
+integración ascendente? Describa la situación.
 
 ## RESPUESTAS TP
 - 1. TestTienda.cs - preguntar
