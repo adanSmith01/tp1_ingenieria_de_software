@@ -47,9 +47,10 @@ public class Tienda
     {
         foreach(var prod in Inventario)
         {
-            if(prod.Nombre == nombre) Inventario.Remove(prod);
-
-            return true;
+            if(prod.Nombre == nombre){
+                Inventario.Remove(prod);
+                return true;
+            } 
         }
 
         throw new Exception("Error al eliminar el producto");

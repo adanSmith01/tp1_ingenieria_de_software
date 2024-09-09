@@ -96,10 +96,9 @@ public class TestTienda:IClassFixture<ProductoFixture>
     [Fact]
     public void EliminarProductoNoExistente()
     {
-        var mocksProductoRepositorio = new Mock<IProducto>();
         var tienda = new Tienda(fixture.productosPrueba);
 
-        Assert.Throws<Exception>(()=>{tienda.EliminarProducto("producto-1");});
+        Assert.Throws<Exception>(()=>{tienda.EliminarProducto("prod-11");});
     }
 
     [Fact]
