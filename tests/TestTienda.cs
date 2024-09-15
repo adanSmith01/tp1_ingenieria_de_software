@@ -155,6 +155,7 @@ public class TestTienda:IClassFixture<ProductoFixture>
     [Fact]
     public void CalcularTotalCarritoDeAlgunosProductosEnlistadosQueEstanEnElInventario()
     {
+        fixture.Reset();
         var tienda = new Tienda(fixture.productosPrueba);
 
         var carrito = GenerarCarritoDeProductos(new List<string>{"prod-1", "prod-12", "prod-3", "prod-14"}, tienda);
