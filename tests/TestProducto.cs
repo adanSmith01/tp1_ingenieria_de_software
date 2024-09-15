@@ -13,6 +13,13 @@ public class TestProducto
     }
 
     [Fact]
+    public void CreacionProducto()
+    {
+        var producto = new Producto{Nombre = "prod-1", Precio=-200, Categoria="cat-1"};
+        Assert.True(producto.Precio >= 0, "El precio del producto no puede ser negativo");
+    }
+
+    [Fact]
     public void CambiarPrecioDeProductoPositivo()
     {
         var producto = new Producto{Nombre = "prod-1", Precio=200, Categoria="cat-1"};
