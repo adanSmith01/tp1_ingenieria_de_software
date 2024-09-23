@@ -21,13 +21,17 @@ integración ascendente? Describa la situación.
 ## RESPUESTAS TP
 1. 
     - Pruebas de unidad:
-        - EliminarProductoExistente()
-        - BuscarProductoExistente()
+        - PruebaConstructorProducto()
     - Pruebas de integración:
+        - EliminarProductoExistente()
+        - EliminarProductoNoExistente()
+        - BuscarProductoExistente()
         - AgregarProductoNoExistente()
         - AgregarProductoExistente()
         - BuscarProductoNoExistente()
 
+<br>
+    Todos los métodos descritos en la sección de pruebas de integración se consideran pruebas de integración, ya que, en el contexto de un sistema de gestión de productos, están diseñados para verificar la interacción entre los distintos módulos y componentes del sistema. Estas pruebas garantizan que las funcionalidades trabajen en conjunto de manera correcta.
 <br>
 
 2. Primero escribes los tests definiendo el comportamiento esperado con ayuda de mocks e interfaces. Esto te permite simular dependencias externas y validar la lógica sin tener que implementar toda la funcionalidad. Luego, cuando los tests fallan (lo cual confirma que la prueba es válida y que la funcionalidad aún no está implementada), comienzas a desarrollar el código hasta que los tests pasen, asegurando que la implementación cumpla con lo que los tests requieren.

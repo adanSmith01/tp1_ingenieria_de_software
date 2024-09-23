@@ -4,6 +4,23 @@ using Xunit;
 
 public class TestProducto
 {
+    public void PruebaConstructorProducto()
+    {
+        // Arrange
+        string nombreEsperado = "Laptop";
+        double precioEsperado = 1500.99;
+        string categoriaEsperada = "Electrónica";
+
+        // Act
+        Producto producto = new Producto(nombreEsperado, precioEsperado, categoriaEsperada);
+
+        // Assert
+        Assert.Equal(nombreEsperado, producto.Nombre);
+        Assert.Equal(precioEsperado, producto.Precio);
+        Assert.Equal(categoriaEsperada, producto.Categoria);
+    }
+
+
     [Fact]
     public void ActualizarPrecioDeProductoNegativo()
     {
