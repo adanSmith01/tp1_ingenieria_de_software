@@ -22,13 +22,14 @@ integración ascendente? Describa la situación.
 1. 
     - Pruebas de unidad:
         - PruebaConstructorProducto()
-    - Pruebas de integración:
-        - EliminarProductoExistente()
         - EliminarProductoNoExistente()
-        - BuscarProductoExistente()
+        - BuscarProductoNoExistente()
+    - Pruebas de integración:
         - AgregarProductoNoExistente()
         - AgregarProductoExistente()
-        - BuscarProductoNoExistente()
+        - BuscarProductoExistente()
+        - EliminarProductoExistente()
+        
 
 <br>
     Todos los métodos descritos en la sección de pruebas de integración se consideran pruebas de integración, ya que, en el contexto de un sistema de gestión de productos, están diseñados para verificar la interacción entre los distintos módulos y componentes del sistema. Estas pruebas garantizan que las funcionalidades trabajen en conjunto de manera correcta.
