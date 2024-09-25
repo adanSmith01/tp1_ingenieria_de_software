@@ -62,7 +62,8 @@ Proporcionan respuestas predefinidas (datos predefinidos) a ciertas llamadas dur
  * Consistencia: Garantizan que cada pieza producida sea idéntica a las demás, lo cual es crucial en la producción en masa.
 
  <br>
- El enfoque que se estaría aplicando es caja blanca, ya que a diferencia del enfoque de caja negra, donde solo se prueban las entradas y salidas sin conocer el funcionamiento interno, en el enfoque de caja blanca los evaluadores tienen acceso completo al código fuente y a la estructura interna del sistema.
+ El enfoque que se estaría aplicando no es caja negra ni caja blanca siendo que los fixture no tienen relacion con el enfoque de las pruebas. Es irrelevante el enfoque (en el sentido caja negra o blanca) 
+ dado que la naturaleza de los fixtures permiten establecer datos predeterminados que pueden ser utilzados en distintas partes.
  
  <br>
 
