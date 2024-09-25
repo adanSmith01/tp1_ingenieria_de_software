@@ -4,6 +4,7 @@ using Xunit;
 
 public class TestProducto
 {
+    [Fact]
     public void PruebaConstructorProducto()
     {
         // Arrange
