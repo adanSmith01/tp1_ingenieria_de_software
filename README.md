@@ -22,13 +22,14 @@ integración ascendente? Describa la situación.
 1. 
     - Pruebas de unidad:
         - PruebaConstructorProducto()
-        - EliminarProductoNoExistente()
-        - BuscarProductoNoExistente()
     - Pruebas de integración:
         - AgregarProductoNoExistente()
         - AgregarProductoExistente()
         - BuscarProductoExistente()
+        - BuscarProductoNoExistente()
         - EliminarProductoExistente()
+        - EliminarProductoNoExistente()
+        
         
 
 <br>
