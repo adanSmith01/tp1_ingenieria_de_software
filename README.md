@@ -40,7 +40,7 @@ integración ascendente? Describa la situación.
 
 <br>
 
-3. - Controladores: No hay
+3. - Controladores: El framework de pruebas (xUnit)
     - Resguardos: Mock de producto 
     
     <br>
